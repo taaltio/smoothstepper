@@ -1,4 +1,4 @@
-// tuomaksen ajastin 2004.
+// tuomaksen ajastin 2004. 2015
 
 #ifndef HARDWARE_H
 #define HARDWARE_H
