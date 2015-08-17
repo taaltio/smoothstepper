@@ -1,0 +1,935 @@
+******************************************************************************
+                  MSP430 Linker PC v4.3.3                      
+******************************************************************************
+>> Linked Sat Aug 15 11:46:07 2015
+
+OUTPUT FILE NAME:   <smooths_ccs4.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00002af4
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  SFR                   00000000   00000010  00000000  00000010  RWIX
+  PERIPHERALS_8BIT      00000010   000000f0  00000000  000000f0  RWIX
+  PERIPHERALS_16BIT     00000100   00000100  00000000  00000100  RWIX
+  RAM                   00000200   00000800  0000026a  00000596  RWIX
+  INFOB                 00001000   00000080  00000000  00000080  RWIX
+  INFOA                 00001080   00000080  00000000  00000080  RWIX
+  FLASH                 00001100   0000eee0  00001b92  0000d34e  RWIX
+  INT00                 0000ffe0   00000002  00000000  00000002  RWIX
+  INT01                 0000ffe2   00000002  00000002  00000000  RWIX
+  INT02                 0000ffe4   00000002  00000002  00000000  RWIX
+  INT03                 0000ffe6   00000002  00000002  00000000  RWIX
+  INT04                 0000ffe8   00000002  00000002  00000000  RWIX
+  INT05                 0000ffea   00000002  00000002  00000000  RWIX
+  INT06                 0000ffec   00000002  00000002  00000000  RWIX
+  INT07                 0000ffee   00000002  00000002  00000000  RWIX
+  INT08                 0000fff0   00000002  00000002  00000000  RWIX
+  INT09                 0000fff2   00000002  00000002  00000000  RWIX
+  INT10                 0000fff4   00000002  00000002  00000000  RWIX
+  INT11                 0000fff6   00000002  00000002  00000000  RWIX
+  INT12                 0000fff8   00000002  00000002  00000000  RWIX
+  INT13                 0000fffa   00000002  00000002  00000000  RWIX
+  INT14                 0000fffc   00000002  00000002  00000000  RWIX
+  RESET                 0000fffe   00000002  00000002  00000000  RWIX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.pinit     0    00001100    00000000     UNINITIALIZED
+
+.bss       0    00000200    0000021a     UNINITIALIZED
+                  00000200    00000188     smooths_main.obj (.bss)
+                  00000388    00000089     serialdrv.obj (.bss)
+                  00000411    00000001     --HOLE--
+                  00000412    00000004     rts430.lib : _lock.obj (.bss)
+                  00000416    00000004                : boot.obj (.bss)
+
+.data      0    00000200    00000000     UNINITIALIZED
+
+.stack     0    000009b0    00000050     UNINITIALIZED
+                  000009b0    00000002     rts430.lib : boot.obj (.stack)
+                  000009b2    0000004e     --HOLE--
+
+.text      0    00001100    00001b00     
+                  00001100    000003cc     command_i.obj (.text:vTaskCommandI)
+                  000014cc    0000032c     smooths_main.obj (.text:aTimerbInt)
+                  000017f8    00000200     motor_drv.obj (.text:UpdateMotToNextSegStop)
+                  000019f8    000001d0     motor_drv.obj (.text:I_UpdateMotToNextSeg)
+                  00001bc8    000001d0     motor_drv.obj (.text:motdListRowWritten)
+                  00001d98    00000156     serialdrv.obj (.text:usart0WriteI32)
+                  00001eee    0000012e     serialdrv.obj (.text:serCmdGetI16)
+                  0000201c    00000106     motor_drv.obj (.text:motdSegmentUpdate)
+                  00002122    000000ee     motor_drv.obj (.text:motdMoveToListCAcc)
+                  00002210    000000d0     motor_drv.obj (.text:motdInitialize)
+                  000022e0    000000b8     motor_drv.obj (.text:motdMoveToListCSpe)
+                  00002398    0000009a     smooths_main.obj (.text:prvSetupHardware)
+                  00002432    00000092     serialdrv.obj (.text:usart0WriteI16)
+                  000024c4    0000008a     motor_drv.obj (.text:motdStart)
+                  0000254e    0000008a     serialdrv.obj (.text:usart0RcvIsr)
+                  000025d8    00000062     sys_clock.obj (.text:SyscStartTimerB)
+                  0000263a    0000005a     smooths_main.obj (.text:main)
+                  00002694    00000058     rts430.lib : div32u.obj (.text)
+                  000026ec    0000004c                : lsr16.obj (.text)
+                  00002738    0000004a     motor_drv.obj (.text:motdMoveToListCont)
+                  00002782    0000004a     motor_drv.obj (.text:motdMoveToListStop)
+                  000027cc    00000048     rts430.lib : autoinit.obj (.text:_auto_init)
+                  00002814    00000046     serialdrv.obj (.text:usart0Init)
+                  0000285a    00000044     serialdrv.obj (.text:usart0Putch)
+                  0000289e    00000042     serialdrv.obj (.text:usart0XmtIsr)
+                  000028e0    00000040     rts430.lib : div32s.obj (.text)
+                  00002920    00000040     serialdrv.obj (.text:serCmdGetI4)
+                  00002960    0000003e     rts430.lib : asr32.obj (.text:l_asr_const)
+                  0000299e    0000003e                : lsl32.obj (.text:l_lsl_const)
+                  000029dc    00000038     sys_clock.obj (.text:SyscStartClocks)
+                  00002a14    00000030     motor_drv.obj (.text:motdEnd)
+                  00002a44    0000002c     rts430.lib : asr16.obj (.text)
+                  00002a70    0000002c                : lsl16.obj (.text)
+                  00002a9c    0000002c     serialdrv.obj (.text:serSendStr)
+                  00002ac8    0000002c     serialdrv.obj (.text:usart0Getch)
+                  00002af4    00000026     rts430.lib : boot.obj (.text:_c_int00_noexit)
+                  00002b1a    0000001e     smooths_main.obj (.text:aTimerA1Int)
+                  00002b38    0000001c     serialdrv.obj (.text:serCmdGetChar)
+                  00002b54    00000018     serialdrv.obj (.text:usart0Puts)
+                  00002b6c    00000016     rts430.lib : div16u.obj (.text)
+                  00002b82    00000014                : mult16_hw.obj (.text)
+                  00002b96    00000012     smooths_main.obj (.text:aTimerA0Int)
+                  00002ba8    00000012     rts430.lib : memcpy.obj (.text:memcpy)
+                  00002bba    00000010                : epilog.obj (.text)
+                  00002bca    0000000e     serialdrv.obj (.text:serResetRxBuffers)
+                  00002bd8    0000000a     rts430.lib : abs.obj (.text:abs)
+                  00002be2    00000006                : isr_trap.obj (.text:__TI_ISR_TRAP)
+                  00002be8    00000006     motor_drv.obj (.text:motdMotorCurrentLevel)
+                  00002bee    00000006     motor_drv.obj (.text:motdSettings)
+                  00002bf4    00000004     rts430.lib : pre_init.obj (.text:_system_pre_init)
+                  00002bf8    00000004                : exit.obj (.text:abort)
+                  00002bfc    00000002     serialdrv.obj (.text:TrapIsr)
+                  00002bfe    00000002     rts430.lib : _lock.obj (.text:_nop)
+
+.const     0    00002c00    00000074     
+                  00002c00    00000028     command_i.obj (.const:.string)
+                  00002c28    00000028     motor_drv.obj (.const:.string)
+                  00002c50    00000014     rts430.lib : _printfi_min.obj (.const:.string)
+                  00002c64    0000000a     smooths_main.obj (.const:.string)
+                  00002c6e    00000006     serialdrv.obj (.const:.string)
+
+.cinit     0    00002c74    0000001e     
+                  00002c74    0000001c     smooths_main.obj (.cinit)
+                  00002c90    00000002     --HOLE-- [fill = 0]
+
+PORT2      0    0000ffe2    00000002     
+                  0000ffe2    00000002     rts430.lib : int01.obj (.int01)
+
+USART1TX   0    0000ffe4    00000002     
+                  0000ffe4    00000002     serialdrv.obj (.int02)
+
+USART1RX   0    0000ffe6    00000002     
+                  0000ffe6    00000002     serialdrv.obj (.int03)
+
+PORT1      0    0000ffe8    00000002     
+                  0000ffe8    00000002     serialdrv.obj (.int04)
+
+TIMERA1    0    0000ffea    00000002     
+                  0000ffea    00000002     smooths_main.obj (.int05)
+
+TIMERA0    0    0000ffec    00000002     
+                  0000ffec    00000002     smooths_main.obj (.int06)
+
+ADC12      0    0000ffee    00000002     
+                  0000ffee    00000002     serialdrv.obj (.int07)
+
+USART0TX   0    0000fff0    00000002     
+                  0000fff0    00000002     serialdrv.obj (.int08)
+
+USART0RX   0    0000fff2    00000002     
+                  0000fff2    00000002     serialdrv.obj (.int09)
+
+WDT        0    0000fff4    00000002     
+                  0000fff4    00000002     serialdrv.obj (.int10)
+
+COMPARATORA 
+*          0    0000fff6    00000002     
+                  0000fff6    00000002     serialdrv.obj (.int11)
+
+TIMERB1    0    0000fff8    00000002     
+                  0000fff8    00000002     smooths_main.obj (.int12)
+
+TIMERB0    0    0000fffa    00000002     
+                  0000fffa    00000002     serialdrv.obj (.int13)
+
+NMI        0    0000fffc    00000002     
+                  0000fffc    00000002     serialdrv.obj (.int14)
+
+.reset     0    0000fffe    00000002     
+                  0000fffe    00000002     rts430.lib : boot.obj (.reset)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+00000200   .bss
+00000200   .data
+00001100   .text
+000001a0   ADC12CTL0
+000001a2   ADC12CTL1
+000001a6   ADC12IE
+000001a4   ADC12IFG
+000001a8   ADC12IV
+00000080   ADC12MCTL0
+00000081   ADC12MCTL1
+0000008a   ADC12MCTL10
+0000008b   ADC12MCTL11
+0000008c   ADC12MCTL12
+0000008d   ADC12MCTL13
+0000008e   ADC12MCTL14
+0000008f   ADC12MCTL15
+00000082   ADC12MCTL2
+00000083   ADC12MCTL3
+00000084   ADC12MCTL4
+00000085   ADC12MCTL5
+00000086   ADC12MCTL6
+00000087   ADC12MCTL7
+00000088   ADC12MCTL8
+00000089   ADC12MCTL9
+00000140   ADC12MEM0
+00000142   ADC12MEM1
+00000154   ADC12MEM10
+00000156   ADC12MEM11
+00000158   ADC12MEM12
+0000015a   ADC12MEM13
+0000015c   ADC12MEM14
+0000015e   ADC12MEM15
+00000144   ADC12MEM2
+00000146   ADC12MEM3
+00000148   ADC12MEM4
+0000014a   ADC12MEM5
+0000014c   ADC12MEM6
+0000014e   ADC12MEM7
+00000150   ADC12MEM8
+00000152   ADC12MEM9
+00000057   BCSCTL1
+00000058   BCSCTL2
+00002bf8   C$$EXIT
+00000059   CACTL1
+0000005a   CACTL2
+0000005b   CAPD
+00000056   DCOCTL
+00000128   FCTL1
+0000012a   FCTL2
+0000012c   FCTL3
+00000000   IE1
+00000001   IE2
+00000002   IFG1
+00000003   IFG2
+00002a44   I_ASR
+00002a6c   I_ASR_1
+00002a5a   I_ASR_10
+00002a58   I_ASR_11
+00002a56   I_ASR_12
+00002a54   I_ASR_13
+00002a52   I_ASR_14
+00002a50   I_ASR_15
+00002a6a   I_ASR_2
+00002a68   I_ASR_3
+00002a66   I_ASR_4
+00002a64   I_ASR_5
+00002a62   I_ASR_6
+00002a60   I_ASR_7
+00002a5e   I_ASR_8
+00002a5c   I_ASR_9
+00002a70   I_LSL
+00002a98   I_LSL_1
+00002a86   I_LSL_10
+00002a84   I_LSL_11
+00002a82   I_LSL_12
+00002a80   I_LSL_13
+00002a7e   I_LSL_14
+00002a7c   I_LSL_15
+00002a96   I_LSL_2
+00002a94   I_LSL_3
+00002a92   I_LSL_4
+00002a90   I_LSL_5
+00002a8e   I_LSL_6
+00002a8c   I_LSL_7
+00002a8a   I_LSL_8
+00002a88   I_LSL_9
+000026ec   I_LSR
+00002732   I_LSR_1
+0000270e   I_LSR_10
+0000270a   I_LSR_11
+00002706   I_LSR_12
+00002702   I_LSR_13
+000026fe   I_LSR_14
+000026fa   I_LSR_15
+0000272e   I_LSR_2
+0000272a   I_LSR_3
+00002726   I_LSR_4
+00002722   I_LSR_5
+0000271e   I_LSR_6
+0000271a   I_LSR_7
+00002716   I_LSR_8
+00002712   I_LSR_9
+000019f8   I_UpdateMotToNextSeg
+00002998   L_ASR_1
+00002974   L_ASR_10
+00002970   L_ASR_11
+0000296c   L_ASR_12
+00002968   L_ASR_13
+00002964   L_ASR_14
+00002960   L_ASR_15
+00002994   L_ASR_2
+00002990   L_ASR_3
+0000298c   L_ASR_4
+00002988   L_ASR_5
+00002984   L_ASR_6
+00002980   L_ASR_7
+0000297c   L_ASR_8
+00002978   L_ASR_9
+000029d6   L_LSL_1
+000029b2   L_LSL_10
+000029ae   L_LSL_11
+000029aa   L_LSL_12
+000029a6   L_LSL_13
+000029a2   L_LSL_14
+0000299e   L_LSL_15
+000029d2   L_LSL_2
+000029ce   L_LSL_3
+000029ca   L_LSL_4
+000029c6   L_LSL_5
+000029c2   L_LSL_6
+000029be   L_LSL_7
+000029ba   L_LSL_8
+000029b6   L_LSL_9
+00000134   MAC
+00000136   MACS
+00000004   ME1
+00000005   ME2
+00000130   MPY
+00000132   MPYS
+00000138   OP2
+00000022   P1DIR
+00000025   P1IE
+00000024   P1IES
+00000023   P1IFG
+00000020   P1IN
+00000021   P1OUT
+00000026   P1SEL
+0000002a   P2DIR
+0000002d   P2IE
+0000002c   P2IES
+0000002b   P2IFG
+00000028   P2IN
+00000029   P2OUT
+0000002e   P2SEL
+0000001a   P3DIR
+00000018   P3IN
+00000019   P3OUT
+0000001b   P3SEL
+0000001e   P4DIR
+0000001c   P4IN
+0000001d   P4OUT
+0000001f   P4SEL
+00000032   P5DIR
+00000030   P5IN
+00000031   P5OUT
+00000033   P5SEL
+00000036   P6DIR
+00000034   P6IN
+00000035   P6OUT
+00000037   P6SEL
+0000013c   RESHI
+0000013a   RESLO
+0000013e   SUMEXT
+000029dc   SyscStartClocks
+000025d8   SyscStartTimerB
+00000172   TACCR0
+00000174   TACCR1
+00000176   TACCR2
+00000162   TACCTL0
+00000164   TACCTL1
+00000166   TACCTL2
+00000160   TACTL
+0000012e   TAIV
+00000170   TAR
+00000192   TBCCR0
+00000194   TBCCR1
+00000196   TBCCR2
+00000198   TBCCR3
+0000019a   TBCCR4
+0000019c   TBCCR5
+0000019e   TBCCR6
+00000182   TBCCTL0
+00000184   TBCCTL1
+00000186   TBCCTL2
+00000188   TBCCTL3
+0000018a   TBCCTL4
+0000018c   TBCCTL5
+0000018e   TBCCTL6
+00000180   TBCTL
+0000011e   TBIV
+00000190   TBR
+00002bfc   TrapIsr
+00000074   U0BR0
+00000075   U0BR1
+00000070   U0CTL
+00000073   U0MCTL
+00000072   U0RCTL
+00000076   U0RXBUF
+00000071   U0TCTL
+00000077   U0TXBUF
+0000007c   U1BR0
+0000007d   U1BR1
+00000078   U1CTL
+0000007b   U1MCTL
+0000007a   U1RCTL
+0000007e   U1RXBUF
+00000079   U1TCTL
+0000007f   U1TXBUF
+000017f8   UpdateMotToNextSegStop
+00000120   WDTCTL
+00000a00   __STACK_END
+00000050   __STACK_SIZE
+00002be2   __TI_ISR_TRAP
+00000001   __TI_args_main
+00000001   __TI_auto_init
+00000416   __TI_cleanup_ptr
+00000418   __TI_dtors_ptr
+00000001   __TI_exit
+0000ffe2   __TI_int01
+0000ffe4   __TI_int02
+0000ffe6   __TI_int03
+0000ffe8   __TI_int04
+0000ffea   __TI_int05
+0000ffec   __TI_int06
+0000ffee   __TI_int07
+0000fff0   __TI_int08
+0000fff2   __TI_int09
+0000fff4   __TI_int10
+0000fff6   __TI_int11
+0000fff8   __TI_int12
+0000fffa   __TI_int13
+0000fffc   __TI_int14
+ffffffff   __binit__
+00000200   __bss__
+ffffffff   __c_args__
+00002c74   __cinit__
+00000200   __data__
+000028e0   __divli
+00002b6c   __divu
+00002694   __divul
+00000200   __edata__
+0000041a   __end__
+00002c00   __etext__
+00002b82   __mpyi_hw
+ffffffff   __pinit__
+000028e0   __remli
+00002b6c   __remu
+00002694   __remul
+00001100   __text__
+000027cc   _auto_init
+00002af4   _c_int00
+00002af4   _c_int00_noexit
+00000412   _lock
+00002bfe   _nop
+0000fffe   _reset_vector
+000009b0   _stack
+00002bf4   _system_pre_init
+00000414   _unlock
+00002b96   aTimerA0Int
+00002b1a   aTimerA1Int
+000014cc   aTimerbInt
+00002bf8   abort
+00002bd8   abs
+0000030e   b_MotorDriverStart
+ffffffff   binit
+00002c74   cinit
+00000200   edata
+0000041a   end
+00002c00   etext
+00002bc6   func_epilog_1
+00002bc4   func_epilog_2
+00002bc2   func_epilog_3
+00002bc0   func_epilog_4
+00002bbe   func_epilog_5
+00002bbc   func_epilog_6
+00002bba   func_epilog_7
+00000316   g_i16_ReceivedCmds
+00000318   g_i16_UsartEcho
+00000308   g_i32_debugTimer
+000002f2   gai32_MotorAbsPos0
+000002f6   gai32_MotorAbsPos1
+000002fa   gai32_MotorAbsPos2
+000002fe   gai32_MotorAbsPos3
+000002f0   gi16_MotorDrvBusy
+00000382   gi16_tmp_mode
+00000380   gi16_tmp_n
+00000384   gu32_tmp_ci
+00000304   i16_HasSwappedFlags
+00000302   i16_MotDrvEnable
+00000314   i16_motdCurrentLevelHalt
+00000312   i16_motdCurrentLevelRun
+00000310   i16_motdSegmentTime
+0000031a   ia_motdSteps
+00000340   m0i16_accelerate
+00000338   m0i16_mode
+0000033e   m0i16_n
+0000033c   m0i16_stepPos
+00000346   m0i16_t
+00000348   m0i16_v0
+0000033a   m0u16_timer
+00000342   m0u32_ci
+00000352   m1i16_accelerate
+0000034a   m1i16_mode
+00000350   m1i16_n
+0000034e   m1i16_stepPos
+00000358   m1i16_t
+0000035a   m1i16_v0
+0000034c   m1u16_timer
+00000354   m1u32_ci
+00000364   m2i16_accelerate
+0000035c   m2i16_mode
+00000362   m2i16_n
+00000360   m2i16_stepPos
+0000036a   m2i16_t
+0000036c   m2i16_v0
+0000035e   m2u16_timer
+00000366   m2u32_ci
+00000376   m3i16_accelerate
+0000036e   m3i16_mode
+00000374   m3i16_n
+00000372   m3i16_stepPos
+0000037c   m3i16_t
+0000037e   m3i16_v0
+00000370   m3u16_timer
+00000378   m3u32_ci
+0000263a   main
+00002ba8   memcpy
+00002a14   motdEnd
+00002210   motdInitialize
+00001bc8   motdListRowWritten
+00002be8   motdMotorCurrentLevel
+00000334   motdMotorDrvLst_extract
+00000332   motdMotorDrvLst_insert
+00000336   motdMotorDrvLst_xtrnext
+00002122   motdMoveToListCAcc
+000022e0   motdMoveToListCSpe
+00002738   motdMoveToListCont
+00002782   motdMoveToListStop
+0000201c   motdSegmentUpdate
+00002bee   motdSettings
+000024c4   motdStart
+ffffffff   pinit
+00000200   s_mot_list
+00002b38   serCmdGetChar
+00001eee   serCmdGetI16
+00002920   serCmdGetI4
+00002bca   serResetRxBuffers
+00002a9c   serSendStr
+0000030c   u16_debug
+00000306   u16_timerSegmentSwap
+00002ac8   usart0Getch
+00002814   usart0Init
+0000285a   usart0Putch
+00002b54   usart0Puts
+0000254e   usart0RcvIsr
+00002432   usart0WriteI16
+00001d98   usart0WriteI32
+0000289e   usart0XmtIsr
+00000388   usart0_rx_buffer
+000003ca   usart0_rx_extract_idx
+000003c8   usart0_rx_insert_idx
+000003cc   usart0_tx_buffer
+0000040e   usart0_tx_extract_idx
+0000040c   usart0_tx_insert_idx
+00000410   usart0_tx_running
+00001100   vTaskCommandI
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000000   IE1
+00000001   IE2
+00000001   __TI_args_main
+00000001   __TI_auto_init
+00000001   __TI_exit
+00000002   IFG1
+00000003   IFG2
+00000004   ME1
+00000005   ME2
+00000018   P3IN
+00000019   P3OUT
+0000001a   P3DIR
+0000001b   P3SEL
+0000001c   P4IN
+0000001d   P4OUT
+0000001e   P4DIR
+0000001f   P4SEL
+00000020   P1IN
+00000021   P1OUT
+00000022   P1DIR
+00000023   P1IFG
+00000024   P1IES
+00000025   P1IE
+00000026   P1SEL
+00000028   P2IN
+00000029   P2OUT
+0000002a   P2DIR
+0000002b   P2IFG
+0000002c   P2IES
+0000002d   P2IE
+0000002e   P2SEL
+00000030   P5IN
+00000031   P5OUT
+00000032   P5DIR
+00000033   P5SEL
+00000034   P6IN
+00000035   P6OUT
+00000036   P6DIR
+00000037   P6SEL
+00000050   __STACK_SIZE
+00000056   DCOCTL
+00000057   BCSCTL1
+00000058   BCSCTL2
+00000059   CACTL1
+0000005a   CACTL2
+0000005b   CAPD
+00000070   U0CTL
+00000071   U0TCTL
+00000072   U0RCTL
+00000073   U0MCTL
+00000074   U0BR0
+00000075   U0BR1
+00000076   U0RXBUF
+00000077   U0TXBUF
+00000078   U1CTL
+00000079   U1TCTL
+0000007a   U1RCTL
+0000007b   U1MCTL
+0000007c   U1BR0
+0000007d   U1BR1
+0000007e   U1RXBUF
+0000007f   U1TXBUF
+00000080   ADC12MCTL0
+00000081   ADC12MCTL1
+00000082   ADC12MCTL2
+00000083   ADC12MCTL3
+00000084   ADC12MCTL4
+00000085   ADC12MCTL5
+00000086   ADC12MCTL6
+00000087   ADC12MCTL7
+00000088   ADC12MCTL8
+00000089   ADC12MCTL9
+0000008a   ADC12MCTL10
+0000008b   ADC12MCTL11
+0000008c   ADC12MCTL12
+0000008d   ADC12MCTL13
+0000008e   ADC12MCTL14
+0000008f   ADC12MCTL15
+0000011e   TBIV
+00000120   WDTCTL
+00000128   FCTL1
+0000012a   FCTL2
+0000012c   FCTL3
+0000012e   TAIV
+00000130   MPY
+00000132   MPYS
+00000134   MAC
+00000136   MACS
+00000138   OP2
+0000013a   RESLO
+0000013c   RESHI
+0000013e   SUMEXT
+00000140   ADC12MEM0
+00000142   ADC12MEM1
+00000144   ADC12MEM2
+00000146   ADC12MEM3
+00000148   ADC12MEM4
+0000014a   ADC12MEM5
+0000014c   ADC12MEM6
+0000014e   ADC12MEM7
+00000150   ADC12MEM8
+00000152   ADC12MEM9
+00000154   ADC12MEM10
+00000156   ADC12MEM11
+00000158   ADC12MEM12
+0000015a   ADC12MEM13
+0000015c   ADC12MEM14
+0000015e   ADC12MEM15
+00000160   TACTL
+00000162   TACCTL0
+00000164   TACCTL1
+00000166   TACCTL2
+00000170   TAR
+00000172   TACCR0
+00000174   TACCR1
+00000176   TACCR2
+00000180   TBCTL
+00000182   TBCCTL0
+00000184   TBCCTL1
+00000186   TBCCTL2
+00000188   TBCCTL3
+0000018a   TBCCTL4
+0000018c   TBCCTL5
+0000018e   TBCCTL6
+00000190   TBR
+00000192   TBCCR0
+00000194   TBCCR1
+00000196   TBCCR2
+00000198   TBCCR3
+0000019a   TBCCR4
+0000019c   TBCCR5
+0000019e   TBCCR6
+000001a0   ADC12CTL0
+000001a2   ADC12CTL1
+000001a4   ADC12IFG
+000001a6   ADC12IE
+000001a8   ADC12IV
+00000200   .bss
+00000200   .data
+00000200   __bss__
+00000200   __data__
+00000200   __edata__
+00000200   edata
+00000200   s_mot_list
+000002f0   gi16_MotorDrvBusy
+000002f2   gai32_MotorAbsPos0
+000002f6   gai32_MotorAbsPos1
+000002fa   gai32_MotorAbsPos2
+000002fe   gai32_MotorAbsPos3
+00000302   i16_MotDrvEnable
+00000304   i16_HasSwappedFlags
+00000306   u16_timerSegmentSwap
+00000308   g_i32_debugTimer
+0000030c   u16_debug
+0000030e   b_MotorDriverStart
+00000310   i16_motdSegmentTime
+00000312   i16_motdCurrentLevelRun
+00000314   i16_motdCurrentLevelHalt
+00000316   g_i16_ReceivedCmds
+00000318   g_i16_UsartEcho
+0000031a   ia_motdSteps
+00000332   motdMotorDrvLst_insert
+00000334   motdMotorDrvLst_extract
+00000336   motdMotorDrvLst_xtrnext
+00000338   m0i16_mode
+0000033a   m0u16_timer
+0000033c   m0i16_stepPos
+0000033e   m0i16_n
+00000340   m0i16_accelerate
+00000342   m0u32_ci
+00000346   m0i16_t
+00000348   m0i16_v0
+0000034a   m1i16_mode
+0000034c   m1u16_timer
+0000034e   m1i16_stepPos
+00000350   m1i16_n
+00000352   m1i16_accelerate
+00000354   m1u32_ci
+00000358   m1i16_t
+0000035a   m1i16_v0
+0000035c   m2i16_mode
+0000035e   m2u16_timer
+00000360   m2i16_stepPos
+00000362   m2i16_n
+00000364   m2i16_accelerate
+00000366   m2u32_ci
+0000036a   m2i16_t
+0000036c   m2i16_v0
+0000036e   m3i16_mode
+00000370   m3u16_timer
+00000372   m3i16_stepPos
+00000374   m3i16_n
+00000376   m3i16_accelerate
+00000378   m3u32_ci
+0000037c   m3i16_t
+0000037e   m3i16_v0
+00000380   gi16_tmp_n
+00000382   gi16_tmp_mode
+00000384   gu32_tmp_ci
+00000388   usart0_rx_buffer
+000003c8   usart0_rx_insert_idx
+000003ca   usart0_rx_extract_idx
+000003cc   usart0_tx_buffer
+0000040c   usart0_tx_insert_idx
+0000040e   usart0_tx_extract_idx
+00000410   usart0_tx_running
+00000412   _lock
+00000414   _unlock
+00000416   __TI_cleanup_ptr
+00000418   __TI_dtors_ptr
+0000041a   __end__
+0000041a   end
+000009b0   _stack
+00000a00   __STACK_END
+00001100   .text
+00001100   __text__
+00001100   vTaskCommandI
+000014cc   aTimerbInt
+000017f8   UpdateMotToNextSegStop
+000019f8   I_UpdateMotToNextSeg
+00001bc8   motdListRowWritten
+00001d98   usart0WriteI32
+00001eee   serCmdGetI16
+0000201c   motdSegmentUpdate
+00002122   motdMoveToListCAcc
+00002210   motdInitialize
+000022e0   motdMoveToListCSpe
+00002432   usart0WriteI16
+000024c4   motdStart
+0000254e   usart0RcvIsr
+000025d8   SyscStartTimerB
+0000263a   main
+00002694   __divul
+00002694   __remul
+000026ec   I_LSR
+000026fa   I_LSR_15
+000026fe   I_LSR_14
+00002702   I_LSR_13
+00002706   I_LSR_12
+0000270a   I_LSR_11
+0000270e   I_LSR_10
+00002712   I_LSR_9
+00002716   I_LSR_8
+0000271a   I_LSR_7
+0000271e   I_LSR_6
+00002722   I_LSR_5
+00002726   I_LSR_4
+0000272a   I_LSR_3
+0000272e   I_LSR_2
+00002732   I_LSR_1
+00002738   motdMoveToListCont
+00002782   motdMoveToListStop
+000027cc   _auto_init
+00002814   usart0Init
+0000285a   usart0Putch
+0000289e   usart0XmtIsr
+000028e0   __divli
+000028e0   __remli
+00002920   serCmdGetI4
+00002960   L_ASR_15
+00002964   L_ASR_14
+00002968   L_ASR_13
+0000296c   L_ASR_12
+00002970   L_ASR_11
+00002974   L_ASR_10
+00002978   L_ASR_9
+0000297c   L_ASR_8
+00002980   L_ASR_7
+00002984   L_ASR_6
+00002988   L_ASR_5
+0000298c   L_ASR_4
+00002990   L_ASR_3
+00002994   L_ASR_2
+00002998   L_ASR_1
+0000299e   L_LSL_15
+000029a2   L_LSL_14
+000029a6   L_LSL_13
+000029aa   L_LSL_12
+000029ae   L_LSL_11
+000029b2   L_LSL_10
+000029b6   L_LSL_9
+000029ba   L_LSL_8
+000029be   L_LSL_7
+000029c2   L_LSL_6
+000029c6   L_LSL_5
+000029ca   L_LSL_4
+000029ce   L_LSL_3
+000029d2   L_LSL_2
+000029d6   L_LSL_1
+000029dc   SyscStartClocks
+00002a14   motdEnd
+00002a44   I_ASR
+00002a50   I_ASR_15
+00002a52   I_ASR_14
+00002a54   I_ASR_13
+00002a56   I_ASR_12
+00002a58   I_ASR_11
+00002a5a   I_ASR_10
+00002a5c   I_ASR_9
+00002a5e   I_ASR_8
+00002a60   I_ASR_7
+00002a62   I_ASR_6
+00002a64   I_ASR_5
+00002a66   I_ASR_4
+00002a68   I_ASR_3
+00002a6a   I_ASR_2
+00002a6c   I_ASR_1
+00002a70   I_LSL
+00002a7c   I_LSL_15
+00002a7e   I_LSL_14
+00002a80   I_LSL_13
+00002a82   I_LSL_12
+00002a84   I_LSL_11
+00002a86   I_LSL_10
+00002a88   I_LSL_9
+00002a8a   I_LSL_8
+00002a8c   I_LSL_7
+00002a8e   I_LSL_6
+00002a90   I_LSL_5
+00002a92   I_LSL_4
+00002a94   I_LSL_3
+00002a96   I_LSL_2
+00002a98   I_LSL_1
+00002a9c   serSendStr
+00002ac8   usart0Getch
+00002af4   _c_int00
+00002af4   _c_int00_noexit
+00002b1a   aTimerA1Int
+00002b38   serCmdGetChar
+00002b54   usart0Puts
+00002b6c   __divu
+00002b6c   __remu
+00002b82   __mpyi_hw
+00002b96   aTimerA0Int
+00002ba8   memcpy
+00002bba   func_epilog_7
+00002bbc   func_epilog_6
+00002bbe   func_epilog_5
+00002bc0   func_epilog_4
+00002bc2   func_epilog_3
+00002bc4   func_epilog_2
+00002bc6   func_epilog_1
+00002bca   serResetRxBuffers
+00002bd8   abs
+00002be2   __TI_ISR_TRAP
+00002be8   motdMotorCurrentLevel
+00002bee   motdSettings
+00002bf4   _system_pre_init
+00002bf8   C$$EXIT
+00002bf8   abort
+00002bfc   TrapIsr
+00002bfe   _nop
+00002c00   __etext__
+00002c00   etext
+00002c74   __cinit__
+00002c74   cinit
+0000ffe2   __TI_int01
+0000ffe4   __TI_int02
+0000ffe6   __TI_int03
+0000ffe8   __TI_int04
+0000ffea   __TI_int05
+0000ffec   __TI_int06
+0000ffee   __TI_int07
+0000fff0   __TI_int08
+0000fff2   __TI_int09
+0000fff4   __TI_int10
+0000fff6   __TI_int11
+0000fff8   __TI_int12
+0000fffa   __TI_int13
+0000fffc   __TI_int14
+0000fffe   _reset_vector
+ffffffff   __binit__
+ffffffff   __c_args__
+ffffffff   __pinit__
+ffffffff   binit
+ffffffff   pinit
+
+[376 symbols]
